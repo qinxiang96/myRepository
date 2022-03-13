@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bjpowernode.dao.StudentDao">
+    <select id="getById" resultType="Student">
+        select * from td1_student where id=#{id}
+    </select>
+    <insert id="save">
+        insert into td1_student(id, name, age) values(#{id}, #{name},#{age})
+    </insert>
+    <select id="getAll" resultType="Student">
+        select * from td1_student
+    </select>
+    <select id="select1" resultType="Student">
+        select *
+        from td1_student where id=#{id};
+    </select>
+    <select id="select2" resultType="Student">
+        select *
+        from td1_student where age=#{age};
+    </select>
+    <select id="select3" resultType="Student">
+        select *
+        from td1_student where name=#{name} and age=#{age};
+    </select>
+    <select id="select4" parameterType="map" resultType="Student">
+        select *
+        from td1_student where name=#{name} and age=#{age};
+    </select>
+    <select id="select5" resultType="Student">
+        select * from td1_student where id='${value}'
+    </select>
+    <select id="select6" resultType="map">
+        select s.name as sname, c.name as cname from td1_student s join td1_classroom c on s.classroomId = c.id
+    </select>
+
+</mapper>
