@@ -31,6 +31,7 @@ public class Test1 {
         List<Student> sList = ss.getAll();
         for(Student s : sList){
             System.out.println(s);
+            System.out.println(s);
         }
     }
 }
